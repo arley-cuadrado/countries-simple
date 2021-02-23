@@ -1,0 +1,58 @@
+<div class="header">
+    <h1>Paises alrededor del mundo v1.0</h1>
+    <article class="menu">
+        <div id="search"> 
+            <!--<input type="text" placeholder="Search country" maxlength="25"> <img src="../../assets/logo.png" alt="logo"> -->
+        </div>
+        
+        <div class="custom-select">
+        <select [(ngModel)]="selectedContinent.id" 
+                (change)="onSelect($event.target.value)">
+            <!--<option disabled selected>Selecciona un continente</option>-->
+            <option *ngFor="let continent of continents" value={{continent.id}}>
+                {{ continent.name }}
+            </option>
+        </select>
+        <img src="../../assets/logo.png" alt="logo"> 
+        </div>
+    </article>
+</div>
+
+<!--{{ countries | json }} -->
+
+
+<section>
+    <div *ngFor="let country of countries" value={{country.id}}>
+        <ul>
+            <li class="name-country"> <strong>País:</strong> {{ country.name }} 
+                <div class="general">
+                    <div class="arrow"></div>
+                    <div class="card">
+                        <article>
+                    
+                            <div class="main">
+                                <div>
+                                    <strong> {{ country.name }} </strong>
+                                </div>
+                                <div><img src=" {{ country.flag }} " alt=""></div>
+                            </div>
+                            
+                        </article>
+                    
+                    </div>
+                    <div class="fullwidth">
+                        <p> <strong>Fronteras: </strong>   {{ country.borders }} </p>
+                    
+                        <ul>
+                            <li> <strong>Región:</strong> {{ country.region }} </li>
+                            <li> <strong>Población:</strong> {{ country.population }} </li>
+                            <li> <strong>Moneda:</strong> {{ country.currency }} </li>
+                            <li> <strong>Lengua:</strong> {{ country.language }} </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</section>
